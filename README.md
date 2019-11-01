@@ -10,7 +10,8 @@ To use with NodeJS:<br> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - ```git clone https://github.com/coolguycam/semver.git <semver_repo>``` (add repo to root of project)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 - ```npm install -g node-gyp```<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 - ```cd <semver_repo>```<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 - ```node-gyp configure --msvs_version=2015```<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 - ```node-gyp build``` <br> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 - ```make && make clean```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 - ```node-gyp configure --msvs_version=2015```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 - ```node-gyp build``` <br> <br>
 
 Now you have your compiled .node bindings file! The compiled bindings end up in build/Debug/ or build/Release/, depending on the build mode. At this point, you can require the .node file with Node.js and run your tests!
