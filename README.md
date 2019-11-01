@@ -14,3 +14,5 @@ To use with NodeJS or Python v2.7 (v3.x.x ***not*** supported!):<br> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```node-gyp build``` <br> <br>
 
 Now you have your compiled .node bindings file! The compiled bindings end up in build/Debug/ or build/Release/, depending on the build mode. At this point, you can require the .node file with Node.js and run your tests!
+
+```const semver = require('./build/Release/addon');```
