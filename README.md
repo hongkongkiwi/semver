@@ -4,7 +4,7 @@ which are passed in as follows:
 
 Valid Input = "\<Valid Semantic Version String\> {any whitespace} \<Valid Semantic Version String\> {any whitespace}>"
 
-Valid Semantic Version String = \<major\>.\<minor\>.\<patch\>-\<pre-release version\>.\<pre-release number\><br>*for reference https://semver.org/
+Valid Semantic Version String = \<major\>.\<minor\>.\<patch\>-\<pre-release version\>.\<pre-release number\><br>***for reference https://semver.org/***
 
 To use with NodeJS:<br> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - ```git clone https://github.com/coolguycam/semver.git <semver_repo>``` (add repo to root of project)<br>
