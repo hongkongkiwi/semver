@@ -8,9 +8,9 @@ Valid Semantic Version String = \<major\>.\<minor\>.\<patch\>-\<pre-release vers
 
 To use with NodeJS:<br> <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 - ```git clone https://github.com/coolguycam/semver.git <semver_repo>``` (add repo to root of project)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - ```npm install -g node-gyp```<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 - ```cd <semver_repo>```<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 - ```node-gyp configure --msvs_version=2015```<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 - ```node-gyp build``` <br> <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```npm install -g node-gyp```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```cd <semver_repo>```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```node-gyp configure --msvs_version=2015```<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```node-gyp build``` <br> <br>
 
 Now you have your compiled .node bindings file! The compiled bindings end up in build/Debug/ or build/Release/, depending on the build mode. At this point, you can require the .node file with Node.js and run your tests!
