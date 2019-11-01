@@ -1,5 +1,5 @@
 # Semver (Semantic Version)
-semver is a functionality built in C, that compares two semantic versions of a dependency. The inputs allow for multiple comparisons, 
+semver is a functionality that compares two semantic versions of a dependency. The inputs allow for multiple comparisons, 
 which are passed in as follows: 
 
 Valid Input = "\<Valid Semantic Version String\> {any whitespace} \<Valid Semantic Version String\> {any whitespace}>"
