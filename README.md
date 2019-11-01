@@ -16,4 +16,4 @@ To use with NodeJS or Python v2.7 (v3.x.x ***not*** supported!):<br><br>
 Now you have your compiled .node bindings file! The compiled bindings end up in build/Debug/ or build/Release/, depending on the build mode. At this point, you can require the .node file with Node.js and run your tests!
 
 To use, add
-```const semver = require('./build/Release/semver');``` **
+```const semver = require('./build/Release/semver');``` 
