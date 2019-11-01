@@ -6,11 +6,25 @@
 /*   By: cdimitro                                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 09:30:43 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/11/01 10:38:46 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/11/01 11:10:51 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/semver.h"
+
+void			ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void			ft_putstr(char *s)
+{
+	while (*s)
+	{
+		ft_putchar(*s);
+		s++;
+	}
+}
 
 int				is_whitespace(char c)
 {

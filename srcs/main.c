@@ -6,7 +6,7 @@
 /*   By: cdimitro                                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 08:30:05 by cdimitro          #+#    #+#             */
-/*   Updated: 2019/11/01 11:01:15 by cdimitro         ###   ########.fr       */
+/*   Updated: 2019/11/01 11:20:38 by cdimitro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,12 @@ int			main(int ac, char **av)
 	v2 = init_version();
 	if (ac > 1)
 	{
-		while (i < ac && valid(av[i], v1, v2))
+		while (i < ac)
 		{
-			compare_versions(v1, v2);
+			if (valid(av[i], v1, v2))
+				compare_versions(v1, v2);
+			else
+				ft_putstr("invalid\n");
 			i++;
 		}
 	}
@@ -35,7 +38,20 @@ int			main(int ac, char **av)
 
 void		compare_versions(t_version *v1, t_version *v2)
 {
-
+	if (v1->major == v2->major)
+	{
+		if (v1->minor == v2->minor)
+		{
+			if (v1->patch == v2->patch)
+				ft_putstr("equal\n");
+			else
+				COMP(v1->patch, v2->patch);
+		}
+		else
+			COMP(v1->minor, v2->minor);
+	}
+	else
+		COMP(v1->major, v2->major);
 }
 
 t_version	*init_version(void)
