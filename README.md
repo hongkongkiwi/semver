@@ -7,7 +7,7 @@ Valid Input = "\<Valid Semantic Version String\> {any whitespace} \<Valid Semant
 Valid Semantic Version String = \<major\>.\<minor\>.\<patch\>-\<pre-release version\>.\<pre-release number\><br>****for reference https://semver.org/***
 
 To use with NodeJS:<br> <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 - ```git clone https://github.com/coolguycam/semver.git <semver_repo>``` (add repo to root of project)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```git clone https://github.com/coolguycam/semver.git <semver_repo>``` (add repo to root of project)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```npm install -g node-gyp```<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```cd <semver_repo>```<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```node-gyp configure --msvs_version=2015```<br>
