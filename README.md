@@ -1,15 +1,10 @@
 # Semver (Semantic Version)
-Semver is a functionality that compares two semantic versions of a dependency. It uses the Emscripten SDK to compile my C source code into a useful JavaScript module. 
+Semver is a functionality that compares two semantic versions of a dependency. It uses the Emscripten SDK to compile my C source code into a useful JavaScript module. ***-reference https://semver.org/***
 
 
 
-The inputs allow for multiple comparisons, 
-which are passed in as follows: 
-
-Valid Input = "\<Valid Semantic Version String\> {any whitespace} \<Valid Semantic Version String\> {any whitespace}>"
-
-Valid Semantic Version String = \<major\>.\<minor\>.\<patch\>-\<pre-release version\>.\<pre-release number\><br>****for reference https://semver.org/***
-
+The methods used are `compare`, `to_string` & `to_obj`. 
+Methods are accessed as follows:<br>
 
 
 Follow the steps to build JS semver module:<br><br>
