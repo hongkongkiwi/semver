@@ -16,7 +16,7 @@ Follow the steps to build semver.js module:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```git clone https://github.com/coolguycam/semver.git && cd semver/``` <br><br>
 3) In order to use JavaScript module, we must compile with the following command:<br>
 ```console
-$ emcc srcs/*.c -o semver.js -s EXPORTED_FUNCTIONS=['_main']
+$ emcc srcs/*.c -o semver.js -s EXTRA_EXPORTED_RUNTIME_METHODS=['_main']
 ```
 <br>
 Import the semver module into any JavaScript file:<br>
