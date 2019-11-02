@@ -19,12 +19,12 @@ Follow the steps to build JS semver module:<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```source ./emsdk_env.sh``` <br><br>
 2) Clone this repository into any working directory<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```git clone https://github.com/coolguycam/semver.git && cd semver/``` <br> <br>
-In order to compile JavaScript module, we must compile with the following command:<br>
+In order to use JavaScript module, we must compile with the following command:<br>
 ```console
-$ emcc semver/srcs/*.c -o semver.js
+$ emcc srcs/*.c -o semver.js
 ```
 <br>
-3) Import the semver module into any JavaScript file like so:<br>
+Import the semver module into any JavaScript file like so:<br>
 ```code
 const semver = require('PATH_TO_SEMVER/semver.js');
 ``` 
