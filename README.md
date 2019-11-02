@@ -1,5 +1,5 @@
 # Semver (Semantic Version)
-Semver is a functionality that compares two semantic versions of a dependency. It uses the Emscripten SDK to compile C source code into a usable JavaScript module. 
+Semver is a functionality that compares two semantic versions of a dependency. It uses the Emscripten SDK to compile my C source code into a useful JavaScript module. 
 
 
 
