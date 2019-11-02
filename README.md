@@ -7,7 +7,7 @@ The methods used are `compare`, `to_string` & `to_obj`.
 Methods are accessed as follows:<br>
 
 
-Follow the steps to build JS semver module:<br><br>
+Follow the steps to build semver.js module:<br>
 1) Download and Install the core Emscripten SDK (emsdk) driver<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```git clone https://github.com/emscripten-core/emsdk.git && cd emsdk/```<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```./emsdk install latest && ./emsdk activate latest``` <br>
