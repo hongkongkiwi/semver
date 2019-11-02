@@ -25,6 +25,6 @@ $ emcc srcs/*.c -o semver.js
 ```
 <br>
 Import the semver module into any JavaScript file like so:<br>
-```code
+```javascript
 const semver = require('PATH_TO_SEMVER/semver.js');
 ``` 
