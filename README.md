@@ -24,6 +24,6 @@ In order to use JavaScript module, we must compile with the following command:<b
 $ emcc srcs/*.c -o semver.js
 ```
 <br>
-Import the semver module into any JavaScript file like so:<br>
+Import the semver module into any JavaScript file:<br>
 
     const semver = require('PATH_TO_SEMVER/semver.js');
