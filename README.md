@@ -13,18 +13,18 @@ Valid Semantic Version String = \<major\>.\<minor\>.\<patch\>-\<pre-release vers
 
 
 Follow the steps to build JS semver module:<br><br>
-Download and Install the core Emscripten SDK (emsdk) driver<br>
+1) Download and Install the core Emscripten SDK (emsdk) driver<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```git clone https://github.com/emscripten-core/emsdk.git && cd emsdk/```<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```./emsdk install latest && ./emsdk activate latest``` <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```source ./emsdk_env.sh``` <br><br>
-Clone this repository into any working directory<br>
+2) Clone this repository into any working directory<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```git clone https://github.com/coolguycam/semver.git && cd semver/``` <br> <br>
 In order to compile JavaScript module, we must compile with the following command:<br>
 ```console
 $ emcc semver/srcs/*.c -o semver.js
 ```
 <br>
-Import the semver module into any JavaScript file like so:<br>
+3) Import the semver module into any JavaScript file like so:<br>
 ```code
 const semver = require('PATH_TO_SEMVER/semver.js');
 ``` 
