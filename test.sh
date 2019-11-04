@@ -6,7 +6,7 @@ echo "This is the test script.\nThe following exercises test valid inputs using 
 
 
 echo "0 - INPUT >./semver.exe -s \"1.1.1  \""
-./semver.exe -s "1.1.1"
+./semver.exe -s "1.1.1  "
 
 echo "\n1 - INPUT >./semver.exe -s \"1.1.1-alpha\""
 ./semver.exe -s "1.1.1-alpha"
@@ -137,7 +137,7 @@ echo "\n37 - INPUT >./semver.exe -v \"2+4\""
 echo "\n38 - INPUT >./semver.exe -v \"   1.1.1-alpha.1.1-beta\""
 ./semver.exe -s "   1.1.1-alpha.1.1-beta"
 
-echo "\n39 - INPUT >./semver.exe -v \"konichiwa\""
+echo "\n39 - INPUT >./semver.exe -v \"konichiwa.2.0\""
 ./semver.exe -s "konichiwa.2.0"
 
 
