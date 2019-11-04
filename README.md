@@ -1,24 +1,24 @@
 # Semver (Semantic Version)
-Semver is a functionality that compares two semantic versions of a dependency. It uses the Emscripten SDK to compile my C source code into a useful JavaScript module. ***-reference https://semver.org/***
+Semver is a library contatining functions that allow for creation of a Semantic Version data-type (t_version), the conversion
+of a (t_version) to a string, as well as compare two t_versions. <br>***-reference proper fomatting @ https://semver.org/***
 
-
-
-The methods used are `compare`, `to_string` & `to_obj`. 
+The functions used are: <br>`compare_precedence(char *string)`<br>`version_to_string(t_version *version)`<br>`string_to_version(char *string)`<br><br>
+Prerequisites: Make sure you have the latest version of gcc:<br>`sudo apt install build-essential`  &&  `gcc -v`<br><br>
 Methods are accessed as follows:<br>
-
-
-Follow the steps to build semver.js module:<br>
-1) Download and Install the core Emscripten SDK (emsdk) driver<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```git clone https://github.com/emscripten-core/emsdk.git && cd emsdk/```<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```./emsdk install latest && ./emsdk activate latest``` <br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```source ./emsdk_env.sh``` <br><br>
-2) Clone this repository into any working directory<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - ```git clone https://github.com/coolguycam/semver.git && cd semver/``` <br><br>
-3) In order to use JavaScript module, we must compile with the following command:<br>
-```console
-$ emcc srcs/*.c -o semver.js -s EXTRA_EXPORTED_RUNTIME_METHODS=['_main'] -s WASM=0
-```
-<br>
-Import the semver module into any JavaScript file:<br>
-
-    const semver = require('PATH_TO_SEMVER/semver.js');
+1) Clone into repo `git clone https://github.com/coolguycam/semver.git`
+2) Use the command `make` to create the exectutable "semver.exe"<br>
+    <br>Test the string_to_version() function using the '-s' flag:<br>
+    ```console 
+    $> ./semver.exe -s "1.1.1"
+    ```
+    <br>Test the version_to_string() function using the '-v' flag:<br>
+    ``` console
+    $> ./semver.exe -v "1.1.1"
+    ```
+    <br>Test the compare_precedence() function using the '-c' flag:<br>
+    ``` console
+    $> ./semver.exe -c "1.1.1 1.2.1"
+    ```
+    <br><br>
+    
+   * **There is a test.sh file with pre-made test cases, but<br>* please feel free to try and break my code :)**
