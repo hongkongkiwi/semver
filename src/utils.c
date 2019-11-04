@@ -1,11 +1,7 @@
 #include "../includes/libc.h"
 
-void			putstr(char *s)
-{
-	while (*s)
-		putchar(*s++);
-}
 
+/*	Checks if character is whitespace.	*/
 int				is_whitespace(char c)
 {
 	if (c == ' ' || c == '\t' || c == '\f' || c == '\n' || c == '\r' ||
@@ -14,6 +10,8 @@ int				is_whitespace(char c)
 	return (0);
 }
 
+
+/*	Traverses index of string to relevant locations.	*/
 void			move_to_after_space(char *str, int *i)
 {
 	while (is_whitespace(str[*i]))
@@ -26,6 +24,8 @@ void			move_to_plus_or_space(char *str, int *i)
 		*i += 1;
 }
 
+
+/*	Functions for converting between 'string' and 'unsigned integer' data types.	*/
 unsigned int	ft_atoi(char *str, int *i)
 {
 	unsigned int res;
@@ -66,6 +66,8 @@ char			*utoa(unsigned int num)
 	return (result);
 }
 
+
+/*	String Manipulation Functions.	*/
 char			*strjoin(char *s1, char *s2)
 {
 	char	*result;

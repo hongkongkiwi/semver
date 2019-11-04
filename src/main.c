@@ -21,7 +21,7 @@ int		main(int ac, char **av)
 		{
 			t_version 	*v = string_to_version(av[2]);
 			char		*str = version_to_string(v);
-			printf("The string converted from input is [%s]\n\n", str);
+			printf("The string converted from input is [%s]\n", str);
 			free(v);
 			free(str);
 		}
@@ -31,14 +31,14 @@ int		main(int ac, char **av)
 			printf("\nYour input '%s' is not a valid flag\n\n", av[1]);
 	}
 	else if (ac > 3)
-		putstr("\nError: too many inputs\n\n");
+		puts("\nError: too many inputs\n\n");
 	else
 	{
-		putstr("\nSemver testing uses three flags, which are as follows:\n");
-		putstr("\nTest the string_to_version() function using the '-s' flag:\n");
-		putstr("ex)   ./semver -s \"1.1.1\"\n\nTest the version_to_string() function");
-		putstr(" using the '-v' flag:\nex)   ./semver -v \"1.1.1\"\n\nTest the ");
-		putstr("compare_precedence() function using the '-c' flag: \nex)   ./semver ");
-		putstr("-c \"1.1.1 1.2.1\"\n\n");
+		puts("\nSemver testing uses three flags, which are as follows:\n");
+		puts("\nTest the string_to_version() function using the '-s' flag:\n");
+		puts("ex)   ./semver -s \"1.1.1\"\n\nTest the version_to_string() function");
+		puts(" using the '-v' flag:\nex)   ./semver -v \"1.1.1\"\n\nTest the ");
+		puts("compare_precedence() function using the '-c' flag: \nex)   ./semver ");
+		puts("-c \"1.1.1 1.2.1\"\n\n");
 	}
 }

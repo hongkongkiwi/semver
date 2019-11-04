@@ -1,5 +1,6 @@
 #include "../includes/libc.h"
 
+/*	Main Functions.	*/
 void		compare_precedence(char *input)
 {
 	t_version	*v1;
@@ -10,7 +11,7 @@ void		compare_precedence(char *input)
 	if (valid(input, v1, v2))
 		compare_versions(v1, v2);
 	else
-		putstr("invalid\n");
+		puts("invalid");
 	free(v1);
 	free(v2);
 }
@@ -69,6 +70,8 @@ char		*version_to_string(t_version *version)
 	return (string);
 }
 
+
+/*	Comparison Functions.	*/
 void		compare_versions(t_version *v1, t_version *v2)
 {
 	if (v1->major == v2->major)
@@ -80,7 +83,7 @@ void		compare_versions(t_version *v1, t_version *v2)
 				if (!strcmp(v1->type, v2->type))
 				{
 					if (!strcmp(v1->meta, v2->meta))
-						putstr("equal\n");
+						puts("equal");
 					else
 						string_compare(v1->meta, v2->meta);
 				}
@@ -103,12 +106,12 @@ void		string_compare(char *s1, char *s2)
 	{
 		if (*s1 > *s2)
 		{
-			putstr("after\n");
+			puts("after");
 			return ;
 		}
 		else if (*s1 < *s2)
 		{
-			putstr("before\n");
+			puts("before");
 			return ;
 		}
 		else
@@ -120,6 +123,8 @@ void		string_compare(char *s1, char *s2)
 	COMP(*s1, *s2);
 }
 
+
+/*	Malloc space for t_version.	*/
 t_version	*init_version(void)
 {
 	t_version	*res;
@@ -134,6 +139,8 @@ t_version	*init_version(void)
 	return (res);
 }
 
+
+/*	Validate input string.	*/
 int			valid(char *str, t_version *v1, t_version *v2)
 {
 	int i;
@@ -149,6 +156,8 @@ int			valid(char *str, t_version *v1, t_version *v2)
 		return (0);
 }
 
+
+/*	Parse through string and set t_version data to input.	*/
 int			grab_v(char *str, t_version *v, int *i)
 {
 	v->major = ft_atoi(str, i);
