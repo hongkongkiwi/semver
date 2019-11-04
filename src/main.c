@@ -1,4 +1,4 @@
-#include "semver.h"
+#include "../includes/libc.h"
 #include <stdio.h>
 
 int		main(int ac, char **av)
@@ -8,16 +8,20 @@ int		main(int ac, char **av)
 		if (!strcmp(av[1], "-s"))
 		{
 			t_version *v = string_to_version(av[2]);
-			printf("\nThe Major value returned [%u]\n", v->major);
+			printf("The Major value returned [%u]\n", v->major);
 			printf("The Minor value returned [%u]\n", v->minor);
-			printf("The Patch value returned [%u]\n\n", v->patch);
+			printf("The Patch value returned [%u]\n", v->patch);
+			if (v->type)
+				printf("The pre-release type returned ['%s']\n", v->type);
+			if (v->meta)
+				printf("The build metadata returned ['%s']\n", v->meta);
 			free(v);
 		}
 		else if (!strcmp(av[1], "-v"))
 		{
 			t_version 	*v = string_to_version(av[2]);
 			char		*str = version_to_string(v);
-			printf("\nThe string converted from input is [%s]\n\n", str);
+			printf("The string converted from input is [%s]\n\n", str);
 			free(v);
 			free(str);
 		}

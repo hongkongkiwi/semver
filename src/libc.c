@@ -1,4 +1,4 @@
-#include "./semver.h"
+#include "../includes/libc.h"
 
 void		compare_precedence(char *input)
 {
@@ -27,9 +27,10 @@ t_version	*string_to_version(char *input)
 	else
 	{
 		free(result);
-		fprintf(stderr, "error: Invalid input on string_to_version(), \
-				make sure Semantic Version format is correct.\n");
-		return (NULL);
+		fprintf(stderr, "error: Invalid input on string_to_version()");
+		fprintf(stderr, ", make sure Semantic Version format is correct.\n");
+		fprintf(stderr, "Reference at https://semver.org/\n");
+		exit(EXIT_FAILURE);
 	}
 }
 
@@ -48,8 +49,23 @@ char		*version_to_string(t_version *version)
 	string = strjoin(temp, y);
 	free(temp);
 	temp = strjoin(string, ".");
+	free(string);
 	string = strjoin(temp, z);
 	free(temp);
+	if (strcmp("", version->type))
+	{
+		temp = strjoin(string, "-");
+		free(string);
+		string = strjoin(temp, version->type);
+		free(temp);
+	}
+	if (strcmp("", version->meta))
+	{
+		temp = strjoin(string, "+");
+		free(string);
+		string = strjoin(temp, version->meta);
+		free(temp);
+	}
 	return (string);
 }
 
@@ -60,7 +76,17 @@ void		compare_versions(t_version *v1, t_version *v2)
 		if (v1->minor == v2->minor)
 		{
 			if (v1->patch == v2->patch)
-				putstr("equal\n");
+			{
+				if (!strcmp(v1->type, v2->type))
+				{
+					if (!strcmp(v1->meta, v2->meta))
+						putstr("equal\n");
+					else
+						string_compare(v1->meta, v2->meta);
+				}
+				else
+					string_compare(v1->type, v2->type);
+			}
 			else
 				COMP(v1->patch, v2->patch);
 		}
@@ -71,15 +97,40 @@ void		compare_versions(t_version *v1, t_version *v2)
 		COMP(v1->major, v2->major);
 }
 
+void		string_compare(char *s1, char *s2)
+{
+	while (*s1 && *s2)
+	{
+		if (*s1 > *s2)
+		{
+			putstr("after\n");
+			return ;
+		}
+		else if (*s1 < *s2)
+		{
+			putstr("before\n");
+			return ;
+		}
+		else
+		{
+			s1++;
+			s2++;
+		}
+	}
+	COMP(*s1, *s2);
+}
+
 t_version	*init_version(void)
 {
 	t_version	*res;
 
-	res = (t_version*)malloc(sizeof(t_version));
+	if (!(res = (t_version*)malloc(sizeof(t_version))))
+		return (NULL);
 	res->major = 0;
 	res->minor = 0;
 	res->patch = 0;
-/*	res->pr_num = 0;*/
+	res->type = "";
+	res->meta = "";
 	return (res);
 }
 
@@ -105,15 +156,20 @@ int			grab_v(char *str, t_version *v, int *i)
 	v->minor = ft_atoi(str, i);
 	CHECK(str, *i);
 	v->patch = ft_atoi(str, i);
-	if (!is_whitespace(str[*i]) && str[*i] != '-' && str[*i] != '\0')
+	if (!is_whitespace(str[*i]) && str[*i] != '-' && str[*i] != '+' && str[*i] != '\0')
 		return (0);
-	else if (str[*i] == '-')
+	if (str[*i] == '-')
 	{
 		*i += 1;
-	/*	v->pr_type = str_delim(str, i);
-		v->pr_num = ft_atoi(str, i);*/
+		v->type = str_delim(str, *i);
+		move_to_plus_or_space(str, i);
 	}
-	else
-		move_space(str, i);
+	if (str[*i] == '+')
+	{
+		*i += 1;
+		v->meta = str_delim(str, *i);
+	}
+	move_to_plus_or_space(str, i);
+	move_to_after_space(str, i);
 	return (1);
 }

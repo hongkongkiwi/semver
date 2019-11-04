@@ -1,12 +1,9 @@
-#include "./semver.h"
+#include "../includes/libc.h"
 
 void			putstr(char *s)
 {
 	while (*s)
-	{
-		putchar(*s);
-		s++;
-	}
+		putchar(*s++);
 }
 
 int				is_whitespace(char c)
@@ -17,9 +14,15 @@ int				is_whitespace(char c)
 	return (0);
 }
 
-void			move_space(char *str, int *i)
+void			move_to_after_space(char *str, int *i)
 {
 	while (is_whitespace(str[*i]))
+		*i += 1;
+}
+
+void			move_to_plus_or_space(char *str, int *i)
+{
+	while (!is_whitespace(str[*i]) && str[*i] != '+' && str[*i] != '\0')
 		*i += 1;
 }
 
@@ -51,7 +54,8 @@ char			*utoa(unsigned int num)
 		num /= 10;
 		len++;
 	}
-	result = (char*)malloc(sizeof(char) * len + 1);
+	if (!(result = (char*)malloc(sizeof(char) * len + 1)))
+		return (NULL);
 	while (i < len)
 	{
 		result[i] = num % 10 + '0';
@@ -70,7 +74,8 @@ char			*strjoin(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	result = (char*)malloc(sizeof(char) * strlen(s1) + strlen(s2) + 1);
+	if (!(result = (char*)malloc(sizeof(char) * strlen(s1) + strlen(s2) + 1)))
+		return (NULL);
 	while (j < (int)strlen(s1))
 	{
 		result[i] = s1[j];
@@ -94,7 +99,8 @@ char			*strsub(char *str, int start, int len)
 	int		i;
 
 	i = 0;
-	result = (char*)malloc(sizeof(char) * len + 1);
+	if (!(result = (char*)malloc(sizeof(char) * len + 1)))
+		return (NULL);
 	while (i < len)
 	{
 		result[i] = str[start];
@@ -105,18 +111,16 @@ char			*strsub(char *str, int start, int len)
 	return (result);
 }
 
-char			*str_delim(char *str, int *i)
+char			*str_delim(char *str, int i)
 {
 	char	*result;
 	int		j;
 
-	j = strlen(str) - 1;
-	while (j > *i && str[j] != '.')
-		j--;
-	if (j > *i)
-	{
-		result = strsub(str, *i, j - *i);
-		return (result);
-	}
-	return (NULL);
+	j = i;
+	while (!is_whitespace(str[j]) && str[j] != '+' && str[j] != '\0')
+		j++;
+	if (j == i)
+		return (NULL);
+	result = strsub(str, i, j - i);
+	return (result);
 }
