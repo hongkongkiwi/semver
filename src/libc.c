@@ -70,8 +70,6 @@ char		*version_to_string(t_version *version)
 	return (string);
 }
 
-
-/*	Comparison Functions.	*/
 void		compare_versions(t_version *v1, t_version *v2)
 {
 	if (v1->major == v2->major)
@@ -100,6 +98,8 @@ void		compare_versions(t_version *v1, t_version *v2)
 		COMP(v1->major, v2->major);
 }
 
+
+/*	Comparison Function for two Semantic Version strings.	*/
 void		string_compare(char *s1, char *s2)
 {
 	while (*s1 && *s2)

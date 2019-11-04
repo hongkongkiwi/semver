@@ -24,14 +24,16 @@ typedef struct		s_version
 }					t_version;
 
 
-/*	This are the three core functions of our library. The inputs vary depending on
+/*	This are the four core functions of our library. The inputs vary depending on
  *	the function:
- *		version_to_string() -> "1.1.1"	-one string, one input
- *		string_to_version() -> *t_version -one valid t_version
- *		compare_precedence() -> "1.1.1  1.2.1"	-one string, two inputs		*/
+ *		version_to_string() -> *t_version -one valid t_version input
+ *		string_to_version() -> "1.1.1"	-one string, one input
+ *		compare_precedence() -> "1.1.1  1.2.1"	-one string, two inputs
+ *		compare_versions() -> *version1 *version2  -two valid t_version inputs*/
 char				*version_to_string(t_version *version);
 t_version			*string_to_version(char *input);
 void				compare_precedence(char *input);
+void				compare_versions(t_version *v1, t_version *v2);
 
 
 /*	These are functions that allow us to create space in memoryfor the t_version,
@@ -40,7 +42,6 @@ void				compare_precedence(char *input);
 t_version			*init_version(void);
 int					valid(char *str, t_version *v1, t_version *v2);
 int					grab_v(char *str, t_version *v, int *i);
-void				compare_versions(t_version *v1, t_version *v2);
 void				string_compare(char *s1, char *s2);
 
 
