@@ -79,8 +79,8 @@ echo "\n19 - INPUT >./semver.exe -v \"18.7.13-A.xyz+0012033049\""
 echo "\n\nThis next section is testing valid inputs with the -c method:"
 
 
-echo "\n20 - INPUT >./semver.exe -c \"1.1.1 1.0.1\""
-./semver.exe -c "1.1.1 1.0.1"
+echo "\n20 - INPUT >./semver.exe -c \"1.1.1 1.0.1   \""
+./semver.exe -c "1.1.1 1.0.1    "
 
 echo "\n21 - INPUT >./semver.exe -c \"1.0.1   1.1.1\""
 ./semver.exe -c "1.0.1   1.1.1"
@@ -94,8 +94,8 @@ echo "\n23 - INPUT >./semver.exe -c \"1.1.1-alpha    1.1.1-alpha\""
 echo "\n24 - INPUT >./semver.exe -c \"1.0.0-beta+exp.sha.5114   1.0.0-beta+exp.sha.5114f85\""
 ./semver.exe -c "1.0.0-beta+exp.sha.5114   1.0.0-beta+exp.sha.5114f85"
 
-echo "\n25 - INPUT >./semver.exe -c \"1.0.0-x.2.z.92  1.0.0-x.7.z.92\""
-./semver.exe -c "1.0.0-x.2.z.92  1.0.0-x.7.z.92"
+echo "\n25 - INPUT >./semver.exe -c \"1.0.0-x.2.z.92   1.0.0-x.7.z.92    \""
+./semver.exe -c "1.0.0-x.2.z.92   1.0.0-x.7.z.92    "
 
 echo "\n26 - INPUT >./semver.exe -c \"1.0.0+2013031 1.0.0+2013011\""
 ./semver.exe -c "1.0.0+20130313144700  1.0.0+20130113144700"
