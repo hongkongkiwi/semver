@@ -24,7 +24,7 @@ typedef struct		s_version
 }					t_version;
 
 
-/*	This are the three main functions of our library. The inputs vary depending on
+/*	This are the three core functions of our library. The inputs vary depending on
  *	the function:
  *		version_to_string() -> "1.1.1"	-one string, one input
  *		string_to_version() -> *t_version -one valid t_version

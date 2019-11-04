@@ -1,6 +1,6 @@
 #include "../includes/libc.h"
 
-/*	Main Functions.	*/
+/*	Core Functions.	*/
 void		compare_precedence(char *input)
 {
 	t_version	*v1;

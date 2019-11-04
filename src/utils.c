@@ -1,6 +1,5 @@
 #include "../includes/libc.h"
 
-
 /*	Checks if character is whitespace.	*/
 int				is_whitespace(char c)
 {
