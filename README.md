@@ -9,15 +9,15 @@ Methods are accessed as follows:<br><br>
 2) Use the command `make` to create the exectutable "semver.exe"<br>
     <br>Test the string_to_version() function using the '-s' flag:<br>
     ```console 
-    $> ./semver -s "1.1.1"
+    $> ./semver.exe -s "1.1.1"
     ```
     <br>Test the version_to_string() function using the '-v' flag:<br>
     ``` console
-    $> ./semver -v "1.1.1"
+    $> ./semver.exe -v "1.1.1"
     ```
     <br>Test the compare_precedence() function using the '-c' flag:<br>
     ``` console
-    $> ./semver -c "1.1.1 1.2.1"
+    $> ./semver.exe -c "1.1.1 1.2.1"
     ```
     <br><br>
     
