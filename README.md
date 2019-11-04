@@ -4,7 +4,7 @@ of a (t_version) to a string, as well as compare two t_versions. <br>***-referen
 
 The functions used are: <br>`compare_precedence(char *string)`<br>`version_to_string(t_version *version)`<br>`string_to_version(char *string)`<br><br>
 Prerequisites: Make sure you have the latest version of gcc:<br>`sudo apt install build-essential`  &&  `gcc -v`<br><br>
-Methods are accessed as follows:<br><br>
+Methods are accessed as follows:<br>
 1) Clone into repo `git clone https://github.com/coolguycam/semver.git`
 2) Use the command `make` to create the exectutable "semver.exe"<br>
     <br>Test the string_to_version() function using the '-s' flag:<br>
